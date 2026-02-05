@@ -1,0 +1,33 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class AddTypeToCategoriesTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::table('categories', function (Blueprint $table) {
+        // 'product' = Barra/Inventario, 'dish' = Cocina
+        $table->string('type')->default('product')->after('name');
+    });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::table('categories', function (Blueprint $table) {
+            //
+        });
+    }
+}
